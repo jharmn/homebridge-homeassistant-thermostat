@@ -64,7 +64,7 @@ def status():
     "temperature": temp
   })
 
-@app.route("/targettemperature/<target_temp>")
+@app.route("/targetTemperature/<target_temp>")
 def set_temp(target_temp):
   headers = {
     "x-ha-access": HA_PASSWORD,
