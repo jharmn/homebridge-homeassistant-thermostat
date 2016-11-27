@@ -61,7 +61,11 @@ def status():
   
   return jsonify({
     "targetTemperature": target,
-    "temperature": temp
+    "temperature": temp,
+    "targetState":"AUTO",
+    "targetStateCode":6,
+    "currentHeatingCoolingState":6,
+    "humidity":0
   })
 
 @app.route("/targetTemperature/<target_temp>")
