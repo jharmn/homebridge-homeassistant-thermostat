@@ -58,14 +58,20 @@ def status():
   attr = response.get("attributes")
   target = attr.get("temperature")
   temp = attr.get("current_temperature")
+  unit = attr.get("unit_of_measurement")
+  if unit == unicode("\xc2C"):
+    unit = 0
+  else:
+    unit = 1
   
   return jsonify({
     "targetTemperature": target,
     "temperature": temp,
-    "targetState":"AUTO",
-    "targetStateCode":6,
-    "currentHeatingCoolingState":6,
-    "humidity":0
+    "targetState":"HEAT",
+    "targetStateCode":1,
+    "currentHeatingCoolingState":1,
+    "humidity":0,
+    "temperatureDisplayUnits": 0
   })
 
 @app.route("/targetTemperature/<target_temp>")
