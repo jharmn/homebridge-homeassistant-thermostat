@@ -1,0 +1,6 @@
+---
+#host_ip: "0.0.0.0"
+#host_port: 8124
+ha_host: "http://localhost:8123"
+ha_password: "mypassword"
+ha_state: "climate.heater"
