@@ -6,6 +6,8 @@ This is a bridge of a bridge, proxying [Home Assistant REST API](https://home-as
 
 DOES NOT support humidity, as generic thermostat doesn't provide it.
 
+Works with Python 2 or 3.
+
 ## Get it running
 
 First, the usual Python/virtualenv stuff:
@@ -28,6 +30,12 @@ Then run the server:
 
 ``` bash
 python server.py
+```
+
+You can also specify a config file with `-c` or `--config`
+
+``` bash
+python server.py -c my_config.yaml
 ```
 
 ## Try it out
