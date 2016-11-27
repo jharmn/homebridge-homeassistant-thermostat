@@ -49,3 +49,21 @@ curl "http://localhost:8124/status"
 ``` bash
 curl "http://localhost:8124/targettemperature/22"
 ```
+
+## Docker
+
+Yes, it's on [Docker Hub](https://hub.docker.com/r/jharmn/docker-homebridge-homeassistant-thermostat)!
+
+
+Here's an example `docker-config.yml` entry:
+
+``` yaml
+thermostat:
+  restart: always
+  image: jharmn/docker-homebridge-homeassistant-thermostat
+  volumes:
+    - ./homebridge-homeassistant-thermostat_config:/config
+    - /etc/localtime:/etc/localtime
+  ports:
+    - "8124:8124"`
+```
