@@ -39,6 +39,7 @@ HOST_IP = cfg.get("host_ip", "0.0.0.0")
 HOST_PORT = cfg.get("ha_port", 8124)
 
 HA_STATE_URL = "%s/api/states/%s" % (HA_HOST, HA_STATE)
+HA_SET_URL = "%s/api/services/climate/set_temperature" % (HA_HOST)
 AUTH_HEADER = "X-HA-Access"
 
 
@@ -80,9 +81,11 @@ def set_temp(target_temp):
     "x-ha-access": HA_PASSWORD,
     "Content-Type": "application/json"
   }
-  status = get_status().json()
-  status["attributes"]["temperature"] = target_temp 
-  response = post(HA_STATE_URL, headers=headers, json=status)
+  status = {
+    "entity_id": HA_STATE,
+    "temperature": target_temp
+  }
+  response = post(HA_SET_URL, headers=headers, json=status)
   if response.status_code != 200:
     abort(response.status_code, response.text)
 
