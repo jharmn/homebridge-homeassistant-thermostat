@@ -59,7 +59,7 @@ def status():
   target = attr.get("temperature")
   temp = attr.get("current_temperature")
   unit = attr.get("unit_of_measurement")
-  if unit == unicode("\xc2C"):
+  if unit == u"\xc2C":
     unit = 0
   else:
     unit = 1
